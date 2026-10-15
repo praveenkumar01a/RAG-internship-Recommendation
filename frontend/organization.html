@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InternAI — Organization Portal</title>
+  <meta name="description" content="Organization portal for posting internships with embeddings and Supabase sync." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="org-page">
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <div class="floating-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div id="app" class="org-app">
+    <header id="header">
+      <div class="header-inner">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="logo-text">InternAI</span>
+          <span class="logo-badge">Organization</span>
+        </div>
+        <div class="header-status">
+          <a class="header-link" href="index.html">Back to Search</a>
+          <span class="status-dot online"></span>
+          <span class="status-text" id="orgStatusText">Portal Ready</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="org-main">
+      <section class="org-hero">
+        <div class="org-copy">
+          <div class="hero-badge">🏢 Organization Portal</div>
+          <h1 class="hero-title">Post internships with one consistent flow</h1>
+          <p class="hero-subtitle">
+            Login with the demo account, submit an internship, and the system will generate an embedding
+            and store the data locally in <strong>internships.json</strong> only.
+          </p>
+          <div class="demo-card">
+            <h2>Demo login details</h2>
+            <p><strong>Email:</strong> orgdemo@internai.com</p>
+            <p><strong>Password:</strong> Demo@1234</p>
+          </div>
+        </div>
+
+        <div class="org-panel" id="loginPanel">
+          <h2>Organization Login</h2>
+          <p class="panel-subtitle">Use the demo credentials to access the portal.</p>
+          <form id="loginForm" class="org-form">
+            <label>
+              Email
+              <input type="email" id="loginEmail" value="orgdemo@internai.com" required />
+            </label>
+            <label>
+              Password
+              <input type="password" id="loginPassword" value="Demo@1234" required />
+            </label>
+            <button type="submit" class="primary-btn">Login</button>
+          </form>
+          <div class="message-box hidden" id="loginMessage"></div>
+        </div>
+
+        <div class="org-panel hidden" id="dashboardPanel">
+          <div class="panel-head">
+            <div>
+              <h2 id="orgWelcome">Welcome</h2>
+              <p class="panel-subtitle">Add a new internship and sync it across the app.</p>
+            </div>
+            <button class="ghost-btn" id="logoutBtn" type="button">Logout</button>
+          </div>
+
+          <form id="internshipForm" class="org-form org-form-grid">
+            <label>
+              Title
+              <input type="text" id="title" placeholder="Backend Developer Intern" required />
+            </label>
+            <label>
+              Organization
+              <input type="text" id="organization" placeholder="Your Company Name" required />
+            </label>
+            <label class="full-span">
+              Description
+              <textarea id="description" rows="4" placeholder="Describe the role, stack, and responsibilities" required></textarea>
+            </label>
+            <label>
+              Domain(s)
+              <input type="text" id="domain" placeholder="AI, Machine Learning, Backend" />
+            </label>
+            <label>
+              Skills
+              <input type="text" id="skills" placeholder="Python, SQL, React" />
+            </label>
+            <label>
+              Eligible Branches
+              <input type="text" id="eligibleBranches" placeholder="CSE, IT, ECE" />
+            </label>
+            <label>
+              Eligible Years
+              <input type="text" id="eligibleYears" placeholder="2, 3, 4" />
+            </label>
+            <label>
+              Location
+              <input type="text" id="location" placeholder="Chennai" required />
+            </label>
+            <label>
+              Work Mode
+              <input type="text" id="workMode" placeholder="Remote, Hybrid, On-site" required />
+            </label>
+            <label>
+              Stipend
+              <input type="number" id="stipend" min="0" placeholder="20000" />
+            </label>
+            <label>
+              Duration (months)
+              <input type="number" id="durationMonths" min="1" placeholder="3" />
+            </label>
+            <label>
+              Start Date
+              <input type="date" id="startDate" />
+            </label>
+            <label>
+              Deadline
+              <input type="date" id="deadline" />
+            </label>
+            <label class="full-span">
+              Source URL
+              <input type="url" id="sourceUrl" placeholder="https://your-company.example/careers" />
+            </label>
+            <button type="submit" class="primary-btn full-span">Save Internship</button>
+          </form>
+          <div class="message-box hidden" id="submitMessage"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="organization.js"></script>
+</body>
+</html>

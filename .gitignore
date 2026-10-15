@@ -1,0 +1,30 @@
+# Node dependencies
+node_modules/
+backend/node_modules/
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+backend/ai/__pycache__/
+
+# Environment variables & secrets
+.env
+backend/ai/.env
+*.env.local
+
+# Logs
+*.log
+backend/*.log
+backend/ai/*.log
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
